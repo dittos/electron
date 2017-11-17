@@ -383,7 +383,7 @@ describe('app module', function () {
       app.setLoginItemSettings({openAtLogin: true, openAsHidden: true})
       assert.deepEqual(app.getLoginItemSettings(), {
         openAtLogin: true,
-        openAsHidden: process.platform === 'darwin', // Only available on macOS
+        openAsHidden: process.platform === 'darwin' && !process.mas, // Only available on macOS
         wasOpenedAtLogin: false,
         wasOpenedAsHidden: false,
         restoreState: false
